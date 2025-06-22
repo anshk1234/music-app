@@ -1,4 +1,1 @@
-streamlit
-streamlit-option-menu
-pandas
-numpy
+
