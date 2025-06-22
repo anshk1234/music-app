@@ -1,0 +1,8 @@
+python library that are needed :-
+1. streamlit 
+2. base64
+3. os
+4. streamlit option menu
+ download these files from terminal of your code editor
+- to run this code use streamlit runner extention on vs code editor and right click on file from explorer then click on run with streamlit 
+and then all set....
