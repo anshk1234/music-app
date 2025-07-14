@@ -3,8 +3,32 @@ import base64
 import os
 from streamlit_option_menu import option_menu
 from state_manager import save_state, load_state
+import time
+import json
+from streamlit_lottie import st_lottie
 
+# ---- Page Configuration ----    
 st.set_page_config(page_title="Music-app", layout="centered")
+
+# --- Splash Animation ---
+def load_lottiefile(filepath):
+    with open(filepath, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+if "show_intro" not in st.session_state:
+    st.session_state.show_intro = True
+
+if st.session_state.show_intro:
+    lottie_intro = load_lottiefile("music.json")
+    splash = st.empty()
+    with splash.container():
+        st.markdown("<h1 style='text-align:center;'>Welcome to MUSIC HUB!</h1>", unsafe_allow_html=True)
+        st_lottie(lottie_intro, height=280, speed=0.5, loop=False)
+        time.sleep(2)
+    splash.empty()
+    st.session_state.show_intro = False
+
+
 
 # ---- Set Background & Neon Sidebar ----
 def set_local_background(image_file):
